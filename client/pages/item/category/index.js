@@ -5,13 +5,14 @@ import Link from 'next/link';
 import { Button } from '@mui/material';
 import { useUserContext } from '../../../context/user';
 export default function Home() {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
   const [user, setUser] = useUserContext();
   const [errMsg, setErrMsg] = useState('');
   const [succesMsg, setSuccesMsg] = useState('');
   const [data, setData] = useState([]);
   const [catJSON, setCatJSON] = useState([]);
   const getAllCategories = async () => {
-    const res = await axios.get(`http://localhost:5000/category/all`);
+    const res = await axios.get(`${SERVER_URL}/category/all`);
     const jsxData = res.data.map(x => {
       return (
         <div key={x.name} className="border border-black p-3 flex flex-col ">
@@ -40,7 +41,7 @@ export default function Home() {
       setErrMsg('insufficient rights, please seee an admin');
       return;
     }
-    const res = await axios.delete(`http://localhost:5000/category/${id}`);
+    const res = await axios.delete(`${SERVER_URL}/category/${id}`);
     console.log(res.data);
     getAllCategories();
     setSuccesMsg(

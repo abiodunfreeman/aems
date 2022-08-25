@@ -18,6 +18,8 @@ import { useEffect, useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Link from 'next/link';
 const ItemCard = props => {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
+
   const { item, users, deleteItem, categoryData } = props;
   const { brand, model, category, quantity } = item;
   const [msgCount, setMsgCount] = useState(1);
@@ -56,15 +58,12 @@ const ItemCard = props => {
 
     const formData = { category, brand, model, price, quantity };
     // console.log(formData);
-    const res = await axios.put(
-      `http://localhost:5000/item/${item._id}`,
-      formData
-    );
+    const res = await axios.put(`${SERVER_URL}/item/${item._id}`, formData);
     props.fetchItems();
     setMsg('item updated');
   };
   const assignToUser = async id => {
-    const res = await axios.put(`http://localhost:5000/user/item/${userData}`, {
+    const res = await axios.put(`${SERVER_URL}/user/item/${userData}`, {
       itemID: id,
     });
     console.log(res.data);

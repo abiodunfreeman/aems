@@ -4,6 +4,7 @@ import axios from 'axios';
 import Nav from '../../components/Nav';
 import ItemCard from '../../components/ItemCard';
 const Type = () => {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
   const router = useRouter();
   const { type } = router.query;
   const [typeState, setTypeState] = useState('');
@@ -14,9 +15,7 @@ const Type = () => {
   const [items, setItems] = useState([]);
 
   const getData = async () => {
-    const res = await axios.get(
-      `http://localhost:5000/item/category/${typeState}`
-    );
+    const res = await axios.get(`${SERVER_URL}/item/category/${typeState}`);
     setItems(res.data);
     console.log(res.data);
   };

@@ -12,6 +12,7 @@ import InstanceCard from '../../components/InstanceCard';
 import { useUserContext } from '../../../context/user';
 
 export default function Home() {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
   const [statusFilter, setStatusFilter] = useState('None');
   const [user, setUser] = useUserContext();
   const [instanceJSX, setInstanceJSX] = useState([]);
@@ -19,7 +20,7 @@ export default function Home() {
   const [allInstances, setAllInstances] = useState([]);
   const [options, setOptions] = useState([]);
   const fetchOptions = async () => {
-    const res = await axios.get('http://localhost:5000/user/all');
+    const res = await axios.get(`${SERVER_URL}/user/all`);
     const options = res.data.map(user => {
       return { label: user.username, id: user._id };
     });
@@ -27,7 +28,7 @@ export default function Home() {
     setOptions(options);
   };
   const fetchItemInstances = async status => {
-    const res = await axios.get(`http://localhost:5000/iteminstance/all`);
+    const res = await axios.get(`${SERVER_URL}/iteminstance/all`);
     const instancesData = res.data.itemInstances;
     setAllInstances(instancesData);
     // if status is undefined, sets it to statusFilter which defaults to 'None'
@@ -55,9 +56,7 @@ export default function Home() {
       setErrMsg('only admins can delete items');
       return;
     }
-    const res = await axios.delete(
-      `http://localhost:5000/iteminstance/${itemId}`
-    );
+    const res = await axios.delete(`${SERVER_URL}/iteminstance/${itemId}`);
 
     fetchItemInstances();
   };

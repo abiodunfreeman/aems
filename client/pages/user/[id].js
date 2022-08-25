@@ -16,6 +16,8 @@ const theme = createTheme({
   },
 });
 const OneUser = () => {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
+
   const [user, setUser] = useUserContext();
   var formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -33,7 +35,7 @@ const OneUser = () => {
   const [totalItemValue, setTotalItemValue] = useState(0);
   const [options, setOptions] = useState([]);
   const fetchOptions = async () => {
-    const res = await axios.get('http://localhost:5000/user/all');
+    const res = await axios.get(`${SERVER_URL}/user/all`);
     const options = res.data.map(user => {
       return { label: user.username, id: user._id };
     });
@@ -42,11 +44,11 @@ const OneUser = () => {
   };
   const fetchUserData = async () => {
     // console.log(userId);
-    const res = await axios.get(`http://localhost:5000/user/${userId}`);
+    const res = await axios.get(`${SERVER_URL}/user/${userId}`);
     setUserData(res.data.oneUser);
   };
   const fetchUserItems = async () => {
-    const res = await axios.get(`http://localhost:5000/user/item/${userId}`);
+    const res = await axios.get(`${SERVER_URL}/user/item/${userId}`);
     // console.log(res.data);
     setUserItems(res.data.userItems);
     setAllUserItems(res.data.userItems);
@@ -62,9 +64,7 @@ const OneUser = () => {
 
       return;
     }
-    const res = await axios.delete(
-      `http://localhost:5000/iteminstance/${itemId}`
-    );
+    const res = await axios.delete(`${SERVER_URL}/iteminstance/${itemId}`);
 
     setTotalItemValue(prevVal => prevVal - price);
     fetchUserItems();
@@ -105,7 +105,7 @@ const OneUser = () => {
     setUserItemsJSX(jsx);
   }, [userItems]);
   const changeUserStatus = async () => {
-    const res = await axios.put(`http://localhost:5000/user/${userId}`, {
+    const res = await axios.put(`${SERVER_URL}/user/${userId}`, {
       status: userData.status,
     });
     setMsg(

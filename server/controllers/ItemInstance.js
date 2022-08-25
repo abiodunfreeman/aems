@@ -82,7 +82,6 @@ exports.newNote = async (req, res, next) => {
 // @access  Public
 exports.deleteNote = async (req, res, next) => {
   try {
-    console.log(req.body);
     const instance = await ItemInstance.findByIdAndUpdate(
       req.body.instanceId,
       { $pull: { notes: req.body.note } },

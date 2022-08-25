@@ -20,6 +20,7 @@ const theme = createTheme({
   },
 });
 export default function User() {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
   const [errMsg, setErrMsg] = useState('');
   const createUser = async e => {
     e.preventDefault();
@@ -36,7 +37,7 @@ export default function User() {
 
       const user = { username, password };
 
-      const res = await axios.post('http://localhost:5000/user/signup', user);
+      const res = await axios.post(`${SERVER_URL}/user/signup`, user);
       if (res) {
         form.reset();
         setErrMsg('');

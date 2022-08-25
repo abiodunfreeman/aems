@@ -19,6 +19,8 @@ const theme = createTheme({
   },
 });
 function Login() {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
+
   axios.defaults.withCredentials = true;
 
   const [user, setUser] = useUserContext();
@@ -32,7 +34,7 @@ function Login() {
 
     const userData = { username, password };
 
-    const res = await axios.post('http://localhost:5000/user/login', userData);
+    const res = await axios.post(`${SERVER_URL}/user/login`, userData);
     console.log(res.data.user);
     if (res.data.user) {
       setUser(res.data.user);
@@ -43,19 +45,13 @@ function Login() {
   const login = async status => {
     if (status === 'admin') {
       const userData = { username: 'jayshonk', password: 'aptiv' };
-      const res = await axios.post(
-        'http://localhost:5000/user/login',
-        userData
-      );
+      const res = await axios.post(`${SERVER_URL}/user/login`, userData);
       setUser(res.data.user);
       console.log('redirect');
       Router.push(`/user/${res.data.user._id}`);
     } else {
       const userData = { username: 'guest', password: 'guest' };
-      const res = await axios.post(
-        'http://localhost:5000/user/login',
-        userData
-      );
+      const res = await axios.post(`${SERVER_URL}/user/login`, userData);
 
       if (res.data.user) {
         setUser(res.data.user);

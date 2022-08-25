@@ -13,6 +13,7 @@ const theme = createTheme({
   },
 });
 export default function New() {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
   const [formData, setFormData] = useState();
   const [successMsg, setSuccessMsg] = useState(false);
   const [errMsg, setErrMsg] = useState(false);
@@ -24,7 +25,7 @@ export default function New() {
     e.preventDefault();
     // console.log(e);
     console.log(formData);
-    const res = await axios.post(`http://localhost:5000/category/new`, {
+    const res = await axios.post(`${SERVER_URL}/category/new`, {
       name: formData,
     });
 

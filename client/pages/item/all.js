@@ -29,6 +29,7 @@ const theme = createTheme({
   },
 });
 export default function All() {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
   const [user, setUser] = useState({});
   const [allUsers, setAllUsers] = useState([]);
   const [errMsg, setErrMsg] = useState('');
@@ -38,28 +39,28 @@ export default function All() {
   const [cardJSX, setCardJSX] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const getAllCategories = async () => {
-    const res = await axios.get(`http://localhost:5000/category/all`);
+    const res = await axios.get(`${SERVER_URL}/category/all`);
     setCategoryData(res.data);
     // console.log(res.data);
   };
   const getAllUsers = async () => {
-    const res = await axios.get('http://localhost:5000/user/all');
+    const res = await axios.get(`${SERVER_URL}/user/all`);
     setAllUsers(res.data);
   };
 
   const getUser = async () => {
-    const res = await axios.get('http://localhost:5000');
+    const res = await axios.get(`${SERVER_URL}`);
     setUser(res.data.user);
   };
   const fetchItems = async () => {
-    const res = await axios.get('http://localhost:5000/item/all');
+    const res = await axios.get(`${SERVER_URL}/item/all`);
     setItems(res.data);
     setAllItems(res.data);
   };
 
   const handleDeleteItem = async (id, setChildErrMsg, setChildSuccessMsg) => {
     if (user && user.status === 'admin') {
-      const res = await axios.delete(`http://localhost:5000/item/delete/${id}`);
+      const res = await axios.delete(`${SERVER_URL}/item/delete/${id}`);
       // fetchItems();
       setTimeout(fetchItems, 0);
       setChildSuccessMsg(`${res.data.deletedItem.model} deleted successfully`);

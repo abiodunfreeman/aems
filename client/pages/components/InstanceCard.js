@@ -19,6 +19,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 export default function InstanceCard(props) {
+  const serverURL = 'https://aems-server.herokuapp.com';
   const { instance, user } = props;
   const { item } = instance;
   const { brand, model, category, quantity } = item;
@@ -40,13 +41,10 @@ export default function InstanceCard(props) {
     e.preventDefault();
     const form = document.getElementById(`form-${id}`);
     const newNoteText = document.getElementById(`new-note-${id}`).value;
-    const res = await axios.post(
-      `http://localhost:5000/iteminstance/notes/${id}`,
-      {
-        instanceId: id,
-        note: newNoteText,
-      }
-    );
+    const res = await axios.post(`${serverURL}/iteminstance/notes/${id}`, {
+      instanceId: id,
+      note: newNoteText,
+    });
     console.log(res.data);
     props.fetchUserItems();
     form.reset();
@@ -67,7 +65,7 @@ export default function InstanceCard(props) {
     }
 
     const res = await axios.put(
-      `http://localhost:5000/iteminstance/notes/${instanceId}`,
+      `${serverURL}/iteminstance/notes/${instanceId}`,
 
       { instanceId, note }
     );
@@ -87,10 +85,9 @@ export default function InstanceCard(props) {
     })[0].id;
     console.log(owner);
 
-    const res = await axios.patch(
-      `http://localhost:5000/iteminstance/${instance._id}`,
-      { owner }
-    );
+    const res = await axios.patch(`${serverURL}/iteminstance/${instance._id}`, {
+      owner,
+    });
 
     setMsg(`assigned to ${res.data.updatedInstance.owner.username}`);
     setErrMsg('');
@@ -100,7 +97,7 @@ export default function InstanceCard(props) {
   const handleStatusChange = async e => {
     setStatus(e.target.value);
     const res = await axios.patch(
-      `http://localhost:5000/iteminstance/status/${instance._id}`,
+      `${serverURL}/iteminstance/status/${instance._id}`,
       { status: e.target.value }
     );
     props.fetchUserItems(undefined);

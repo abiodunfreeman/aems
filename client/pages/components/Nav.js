@@ -27,6 +27,7 @@ const theme = createTheme({
   },
 });
 export default function Nav() {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
   const [user, setUser] = useUserContext();
 
   const [categoryAnchorEl, setCategoryAnchorEl] = useState(null);
@@ -108,7 +109,7 @@ export default function Nav() {
     hamburgerIcon.classList.toggle('change');
   };
   const logout = async () => {
-    const res = await axios.get('http://localhost:5000/logout');
+    const res = await axios.get(`${SERVER_URL}/logout`);
     setUser(false);
     Router.push('/user/logout');
   };

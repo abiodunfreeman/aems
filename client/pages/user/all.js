@@ -6,6 +6,8 @@ import Nav from '../components/Nav';
 import { useUserContext } from '../../context/user';
 
 export default function AllUsers() {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
+
   const [user, setUser] = useUserContext();
   const [errMsg, setErrMsg] = useState('');
   const [successMsg, setSuccessMsg] = useState(false);
@@ -43,7 +45,7 @@ export default function AllUsers() {
       setSuccessMsg(false);
       return;
     }
-    const res = await axios.delete(`http://localhost:5000/user/${id}/delete`);
+    const res = await axios.delete(`${SERVER_URL}/user/${id}/delete`);
 
     getUsers();
     if (res.data.success === true) console.log(res.data);
@@ -59,7 +61,7 @@ export default function AllUsers() {
     setErrMsg('');
   };
   const getUsers = async () => {
-    const res = await axios.get('http://localhost:5000/user/all');
+    const res = await axios.get(`${SERVER_URL}/user/all`);
 
     setUsersJSX(returnUserJSX(res.data));
     setUsers(res.data);

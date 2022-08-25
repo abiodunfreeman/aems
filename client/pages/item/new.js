@@ -24,6 +24,8 @@ const theme = createTheme({
   },
 });
 const New = () => {
+  const SERVER_URL = 'https://aems-server.herokuapp.com';
+
   const [categoryData, setCategoryData] = useState([]);
 
   const [catFormData, setCatFormData] = useState('');
@@ -33,7 +35,7 @@ const New = () => {
   };
 
   const getAllCategories = async () => {
-    const res = await axios.get(`http://localhost:5000/category/all`);
+    const res = await axios.get(`${SERVER_URL}/category/all`);
     setCategoryData(res.data);
     console.log(res.data);
   };
@@ -52,7 +54,7 @@ const New = () => {
     const formData = { category, brand, model, price, quantity };
 
     try {
-      const res = await axios.post('http://localhost:5000/item/new', formData);
+      const res = await axios.post(`${SERVER_URL}/item/new`, formData);
       console.log(res.data);
       const form = document.querySelector('form');
       form.reset();
