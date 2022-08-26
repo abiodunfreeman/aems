@@ -28,22 +28,25 @@ function Login() {
   const loginAuto = async e => {
     e.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const form = document.querySelector('form');
+    try {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const form = document.querySelector('form');
 
-    const userData = { username, password };
+      const userData = { username, password };
 
-    const res = await axios.post(`${SERVER_URL}/user/login`, userData);
-    console.log(res.data.user);
-    if (res.data.user) {
-      setUser(res.data.user);
-      console.log('redirect');
-      Router.push({
-        pathname: '/user/[id]',
-        query: { id: res.data.user._id },
-      });
-      // Router.push(`/user/[id]?id=${res.data.user._id}`);
+      const res = await axios.post(`${SERVER_URL}/user/login`, userData);
+      console.log(res.data.user);
+      if (res.data.user) {
+        setUser(res.data.user);
+        console.log('redirect');
+        Router.push({
+          pathname: '/user/[id]',
+          query: { id: res.data.user._id },
+        });
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
   const login = async status => {
@@ -65,16 +68,20 @@ function Login() {
         console.log(err);
       }
     } else {
-      const userData = { username: 'guest', password: 'guest' };
-      const res = await axios.post(`${SERVER_URL}/user/login`, userData);
+      try {
+        const userData = { username: 'guest', password: 'guest' };
+        const res = await axios.post(`${SERVER_URL}/user/login`, userData);
 
-      if (res.data.user) {
-        setUser(res.data.user);
+        if (res.data.user) {
+          setUser(res.data.user);
 
-        Router.push({
-          pathname: '/user/[id]',
-          query: { id: res.data.user._id },
-        });
+          Router.push({
+            pathname: '/user/[id]',
+            query: { id: res.data.user._id },
+          });
+        }
+      } catch (err) {
+        console.log(err);
       }
     }
   };

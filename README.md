@@ -26,4 +26,4 @@ Found out about useContext out of neccesity, getting a response from the server 
 
 ## To-Do
 
-    - dynamic category page that list all items in that category (import and use <ItemCard/>)
+    -on successfull item update get rid of errMsg on /item/all
