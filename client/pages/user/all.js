@@ -72,8 +72,9 @@ export default function AllUsers() {
   }, []);
 
   function handleFilterUsers(e) {
+    const userSearchValue = e.target.value.toLowerCase();
     const filteredUsers = users.filter(user =>
-      user.username.includes(e.target.value)
+      user.username.includes(userSearchValue)
     );
     setUsersJSX(returnUserJSX(filteredUsers));
   }
