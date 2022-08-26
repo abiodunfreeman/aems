@@ -36,7 +36,7 @@ function Login() {
       const userData = { username, password };
 
       const res = await axios.post(`${SERVER_URL}/user/login`, userData);
-      console.log(res.data.user);
+      console.log(res.data + ' - login auto form');
       if (res.data.user) {
         setUser(res.data.user);
         console.log('redirect');
