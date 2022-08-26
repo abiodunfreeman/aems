@@ -44,14 +44,18 @@ const OneUser = () => {
   };
   const fetchUserData = async () => {
     // console.log(userId);
-    const res = await axios.get(`${SERVER_URL}/user/${userId}`);
-    setUserData(res.data.oneUser);
+    if (userId != undefined) {
+      const res = await axios.get(`${SERVER_URL}/user/${userId}`);
+      setUserData(res.data.oneUser);
+    }
   };
   const fetchUserItems = async () => {
-    const res = await axios.get(`${SERVER_URL}/user/item/${userId}`);
-    // console.log(res.data);
-    setUserItems(res.data.userItems);
-    setAllUserItems(res.data.userItems);
+    if (userId != undefined) {
+      const res = await axios.get(`${SERVER_URL}/user/item/${userId}`);
+
+      setUserItems(res.data.userItems);
+      setAllUserItems(res.data.userItems);
+    }
   };
   const deleteItemInstance = async (itemId, price, setErrMsg, setMsg) => {
     if (!user) {
