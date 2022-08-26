@@ -20,7 +20,7 @@ const theme = createTheme({
 });
 function Login() {
   const SERVER_URL = 'https://aems-server.herokuapp.com';
-
+  const CLIENT_URL = 'https://aems.vercel.app';
   axios.defaults.withCredentials = true;
 
   const [user, setUser] = useUserContext();
@@ -39,7 +39,7 @@ function Login() {
     if (res.data.user) {
       setUser(res.data.user);
       console.log('redirect');
-      Router.push(`${SERVER_URL}/user/${res.data.user._id}`);
+      Router.push(`${CLIENT_URL}/user/${res.data.user._id}`);
     }
   };
   const login = async status => {
@@ -47,24 +47,24 @@ function Login() {
     // console.log(res.data);
     // return;
     if (status === 'admin') {
-      const loginUrl = `${SERVER_URL}/user/login`;
+      const loginUrl = `${CLIENT_URL}/user/login`;
       const userData = { username: 'jayshonk', password: 'aptiv' };
       try {
         const res = await axios.post(loginUrl, userData);
         setUser(res.data.user);
         console.log(res.data);
-        Router.push(`${SERVER_URL}/user/${res.data.user._id}`);
+        Router.push(`${CLIENT_URL}/user/${res.data.user._id}`);
       } catch (err) {
         console.log(err);
       }
     } else {
       const userData = { username: 'guest', password: 'guest' };
-      const res = await axios.post(`${SERVER_URL}/user/login`, userData);
+      const res = await axios.post(`${CLIENT_URL}/user/login`, userData);
 
       if (res.data.user) {
         setUser(res.data.user);
 
-        Router.push(`${SERVER_URL}/user/${res.data.user._id}`);
+        Router.push(`${CLIENT_URL}/user/${res.data.user._id}`);
       }
     }
   };
