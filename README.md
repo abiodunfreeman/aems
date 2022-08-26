@@ -27,3 +27,4 @@ Found out about useContext out of neccesity, getting a response from the server 
 ## To-Do
 
     -on successfull item update get rid of errMsg on /item/all
+    -prod only working on firefox?? i think its https/cors issue

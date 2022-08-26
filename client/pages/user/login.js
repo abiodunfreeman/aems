@@ -54,27 +54,28 @@ function Login() {
     }
   };
   const login = async status => {
-    // const res = await axios.get(SERVER_URL);
-    // console.log(res.data);
-    // return;
+    const loginUrl = `${SERVER_URL}/user/login`;
+
     if (status === 'admin') {
-      const loginUrl = `${SERVER_URL}/user/login`;
       const userData = { username: 'jayshonk', password: 'aptiv' };
       try {
         const res = await axios.post(loginUrl, userData);
-        setUser(res.data.user);
-        console.log(res.data);
-        Router.push({
-          pathname: '/user/[id]',
-          query: { id: res.data.user._id },
-        });
+        if (res.data.user) {
+          setUser(res.data.user);
+          Router.push({
+            pathname: '/user/[id]',
+            query: { id: res.data.user._id },
+          });
+        } else {
+          console.log(res);
+        }
       } catch (err) {
         console.log(err);
       }
     } else {
+      const userData = { username: 'guest', password: 'guest' };
       try {
-        const userData = { username: 'guest', password: 'guest' };
-        const res = await axios.post(`${SERVER_URL}/user/login`, userData);
+        const res = await axios.post(loginUrl, userData);
 
         if (res.data.user) {
           setUser(res.data.user);
