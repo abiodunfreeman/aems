@@ -141,7 +141,7 @@ export default function Nav() {
           )}
           <div id="nav-container">
             {/* ALWAYS */}
-            <Link href={user ? `${CLIENT_URL}/user/${user._id}` : '/'}>
+            <Link href={user ? `/user/[id]?id=${user._id}` : '/'} as={user._id}>
               <div
                 id="nav-logo"
                 className="flex justify-center items-center  cursor-pointer"
