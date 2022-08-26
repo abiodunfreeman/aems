@@ -28,6 +28,7 @@ const theme = createTheme({
 });
 export default function Nav() {
   const SERVER_URL = 'https://aems-server.herokuapp.com';
+  const CLIENT_URL = 'https://aems.vercel.app';
   const [user, setUser] = useUserContext();
 
   const [categoryAnchorEl, setCategoryAnchorEl] = useState(null);
@@ -140,7 +141,7 @@ export default function Nav() {
           )}
           <div id="nav-container">
             {/* ALWAYS */}
-            <Link href={user ? `/user/${user._id}` : '/'}>
+            <Link href={user ? `${CLIENT_URL}/user/${user._id}` : '/'}>
               <div
                 id="nav-logo"
                 className="flex justify-center items-center  cursor-pointer"
