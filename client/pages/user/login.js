@@ -35,7 +35,9 @@ function Login() {
 
       const userData = { username, password };
 
-      const res = await axios.post(`${SERVER_URL}/user/login`, userData);
+      const res = await axios.post(`${SERVER_URL}/user/login`, userData, {
+        withCredentials: true,
+      });
       console.log(res.data + ' - login auto form');
       if (res.data.user) {
         setUser(res.data.user);
