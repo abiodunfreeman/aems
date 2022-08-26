@@ -26,6 +26,10 @@ Found out about useContext out of neccesity, getting a response from the server 
 
 ## To-Do
 
+    -make user search case insensitive
+    -save user auth in some fashion
+    -theme provider on every page
+    -update 'dev' server to match prod
     -fix <InstanceCard/> view owner link
     -on successfull item update get rid of errMsg on /item/all
     -prod only working on firefox?? i think its https/cors issue
