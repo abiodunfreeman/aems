@@ -19,12 +19,12 @@ export default function AllUsers() {
       return (
         <div
           key={u._id}
-          className="border border-black p-2 flex flex-col items-center gap-3 w-60"
+          className="border border-black p-2 flex flex-col items-center gap-3 w-60 bg-black text-white"
         >
           <h1 className=" text-bold text-3xl">{u.username}</h1>
 
           <Link href={`/user/[id]?id=${u._id}`}>
-            <Button variant="outlined">View Profile</Button>
+            <Button variant="contained">View Profile</Button>
           </Link>
           <Button
             variant="outlined"
