@@ -261,7 +261,7 @@ export default function InstanceCard(props) {
                 </Button>
                 {props.seeOwner && (
                   <Link href={dynamicUserLink}>
-                    <Button>view owner</Button>
+                    <Button>view user</Button>
                   </Link>
                 )}
               </AccordionDetails>
