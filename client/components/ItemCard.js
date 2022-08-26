@@ -161,7 +161,7 @@ const ItemCard = props => {
                   assign to user
                 </Button>
                 {userData && (
-                  <Link href={`/user/${userData}`}>
+                  <Link href={`/user/[id]?id=${userData}`}>
                     <Button>view user</Button>
                   </Link>
                 )}
