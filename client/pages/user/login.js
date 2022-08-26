@@ -44,6 +44,8 @@ function Login() {
           pathname: '/user/[id]',
           query: { id: res.data.user._id },
         });
+      } else {
+        console.log(res);
       }
     } catch (err) {
       console.log(err);
@@ -79,6 +81,8 @@ function Login() {
             pathname: '/user/[id]',
             query: { id: res.data.user._id },
           });
+        } else {
+          console.log(res);
         }
       } catch (err) {
         console.log(err);
