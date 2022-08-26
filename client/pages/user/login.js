@@ -47,7 +47,7 @@ function Login() {
     // console.log(res.data);
     // return;
     if (status === 'admin') {
-      const loginUrl = `${CLIENT_URL}/user/login`;
+      const loginUrl = `${SERVER_URL}/user/login`;
       const userData = { username: 'jayshonk', password: 'aptiv' };
       try {
         const res = await axios.post(loginUrl, userData);
@@ -59,7 +59,7 @@ function Login() {
       }
     } else {
       const userData = { username: 'guest', password: 'guest' };
-      const res = await axios.post(`${CLIENT_URL}/user/login`, userData);
+      const res = await axios.post(`${SERVER_URL}/user/login`, userData);
 
       if (res.data.user) {
         setUser(res.data.user);
