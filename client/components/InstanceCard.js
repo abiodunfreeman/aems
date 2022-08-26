@@ -24,6 +24,7 @@ export default function InstanceCard(props) {
   const [user, setUser] = useUserContext();
 
   const serverURL = 'https://aems-server.herokuapp.com';
+  const CLIENT_URL = 'https://aems.vercel.app';
   const { instance } = props;
   const { item } = instance;
   const { brand, model, category, quantity } = item;
@@ -120,7 +121,7 @@ export default function InstanceCard(props) {
         return option;
       }
     })[0].id;
-    setDynamicUserLink(`/user/${id}`);
+    setDynamicUserLink(`${CLIENT_URL}/user/${id}`);
     // console.log(id);
   };
   return (
