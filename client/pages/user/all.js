@@ -19,7 +19,7 @@ export default function AllUsers() {
       return (
         <div
           key={u._id}
-          className="border border-black p-2 flex flex-col items-center gap-3 w-60 bg-black text-white"
+          className="border border-black p-2 flex flex-col items-center gap-3 w-60 h-60 bg-darkgray text-white  rounded-lg"
         >
           <h1 className=" text-bold text-3xl">{u.username}</h1>
 
