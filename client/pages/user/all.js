@@ -7,6 +7,7 @@ import { useUserContext } from '../../context/user';
 
 export default function AllUsers() {
   const SERVER_URL = 'https://aems-server.herokuapp.com';
+  const CLIENT_URL = 'https://aems.vercel.app';
 
   const [user, setUser] = useUserContext();
   const [errMsg, setErrMsg] = useState('');
@@ -15,7 +16,7 @@ export default function AllUsers() {
   const [usersJSX, setUsersJSX] = useState([]);
   function returnUserJSX(users) {
     const userJSX = users.map(u => {
-      const url = `/user/${u._id}`;
+      const url = `${CLIENT_URL}/user/${u._id}`;
       return (
         <div
           key={u._id}
