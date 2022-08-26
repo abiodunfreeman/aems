@@ -37,7 +37,7 @@
 }
 #items-all-container {
   background-color: #fff;
-  // min-height: 100vh;
+  min-height: 100vh;
   max-width: 100vw;
   // border: 8px solid red;
   #items-jsx-container {
@@ -48,12 +48,12 @@
     // border: 2px solid blue;
     // box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);
     display: flex;
+    min-height: 77.5vh;
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
     padding: 2rem;
     background-color: #222;
-    margin: 0;
     .item-card-container {
       // border: 5px solid red;
       margin: 0px;

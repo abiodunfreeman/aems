@@ -19,6 +19,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ItemCard from '../../components/ItemCard';
+import { useUserContext } from '../../context/user';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
@@ -30,7 +31,7 @@ const theme = createTheme({
 });
 export default function All() {
   const SERVER_URL = 'https://aems-server.herokuapp.com';
-  const [user, setUser] = useState({});
+  const [user, setUser] = useUserContext();
   const [allUsers, setAllUsers] = useState([]);
   const [errMsg, setErrMsg] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
@@ -48,10 +49,6 @@ export default function All() {
     setAllUsers(res.data);
   };
 
-  const getUser = async () => {
-    const res = await axios.get(`${SERVER_URL}`);
-    setUser(res.data.user);
-  };
   const fetchItems = async () => {
     const res = await axios.get(`${SERVER_URL}/item/all`);
     setItems(res.data);
@@ -82,7 +79,6 @@ export default function All() {
   };
 
   useEffect(() => {
-    getUser();
     getAllUsers();
     getAllCategories();
     fetchItems();

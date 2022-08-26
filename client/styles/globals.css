@@ -48,18 +48,19 @@
 /* line 38, ../GitHub/aems/client/styles/scss/globals.scss */
 #items-all-container {
   background-color: #fff;
+  min-height: 100vh;
   max-width: 100vw;
 }
 
 /* line 43, ../GitHub/aems/client/styles/scss/globals.scss */
 #items-all-container #items-jsx-container {
   display: flex;
+  min-height: 77.5vh;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
   padding: 2rem;
   background-color: #222;
-  margin: 0;
 }
 
 /* line 57, ../GitHub/aems/client/styles/scss/globals.scss */
