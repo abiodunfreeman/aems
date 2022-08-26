@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Nav from '../components/Nav';
+import Nav from '../../components/Nav';
 import { Button, TextField } from '@mui/material';
 import Link from 'next/link';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import InstanceCard from '../components/InstanceCard';
+import InstanceCard from '../../components/InstanceCard';
 import { useUserContext } from '../../context/user';
 const theme = createTheme({
   palette: {

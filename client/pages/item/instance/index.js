@@ -1,4 +1,4 @@
-import Nav from '../../components/Nav';
+import Nav from '../../../components/Nav';
 import axios from 'axios';
 import {
   TextField,
@@ -8,7 +8,7 @@ import {
   InputLabel,
 } from '@mui/material';
 import { useEffect, useState } from 'react';
-import InstanceCard from '../../components/InstanceCard';
+import InstanceCard from '../../../components/InstanceCard';
 import { useUserContext } from '../../../context/user';
 
 export default function Home() {

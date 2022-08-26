@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
 import axios from 'axios';
 import { useState } from 'react';
-import Nav from '../../components/Nav';
+import Nav from '../../../components/Nav';
 import { Button, Card, CardActions, CardContent } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({

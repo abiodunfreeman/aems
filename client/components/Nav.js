@@ -16,7 +16,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
-import { useUserContext } from '../../context/user';
+import { useUserContext } from '../context/user';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {

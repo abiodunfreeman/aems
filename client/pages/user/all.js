@@ -2,7 +2,7 @@ import { Button, TextField } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Nav from '../components/Nav';
+import Nav from '../../components/Nav';
 import { useUserContext } from '../../context/user';
 
 export default function AllUsers() {

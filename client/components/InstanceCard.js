@@ -18,7 +18,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useUserContext } from '../../context/user';
+import { useUserContext } from '../context/user';
 
 export default function InstanceCard(props) {
   const [user, setUser] = useUserContext();

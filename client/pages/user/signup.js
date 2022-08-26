@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import axios from 'axios';
-import Nav from '../components/Nav';
+import Nav from '../../components/Nav';
 import { useState } from 'react';
 import Router from 'next/router';
 import {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import Nav from '../components/Nav';
+import Nav from '../../components/Nav';
 import {
   Button,
   Card,
@@ -18,7 +18,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import ItemCard from '../components/ItemCard';
+import ItemCard from '../../components/ItemCard';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
