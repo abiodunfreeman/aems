@@ -16,7 +16,6 @@ export default function AllUsers() {
   const [usersJSX, setUsersJSX] = useState([]);
   function returnUserJSX(users) {
     const userJSX = users.map(u => {
-      const url = `${CLIENT_URL}/user/${u._id}`;
       return (
         <div
           key={u._id}
@@ -24,7 +23,7 @@ export default function AllUsers() {
         >
           <h1 className=" text-bold text-3xl">{u.username}</h1>
 
-          <Link href={url}>
+          <Link href={`/user/[id]?id=${u._id}`}>
             <Button variant="outlined">View Profile</Button>
           </Link>
           <Button
