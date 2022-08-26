@@ -18,9 +18,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useUserContext } from '../../context/user';
+
 export default function InstanceCard(props) {
+  const [user, setUser] = useUserContext();
+
   const serverURL = 'https://aems-server.herokuapp.com';
-  const { instance, user } = props;
+  const { instance } = props;
   const { item } = instance;
   const { brand, model, category, quantity } = item;
   const [status, setStatus] = useState(instance.status);
@@ -279,4 +283,27 @@ export default function InstanceCard(props) {
       </Card>
     </div>
   );
+}
+export async function getStaticProps(context) {
+  return {
+    props: {
+      instance: {
+        item: {
+          category: 'prop category',
+          brand: 'prop-brand',
+          model: 'prop-model',
+          quantity: 5,
+          price: 1000,
+        },
+        status: 'Loaned',
+        owner: {
+          username: 'prop-username',
+          password: 'prop-password',
+          _id: '20934klsjf!',
+          status: 'default',
+        },
+        notes: ['test note'],
+      },
+    }, // will be passed to the page component as props
+  };
 }
