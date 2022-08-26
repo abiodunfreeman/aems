@@ -39,7 +39,7 @@ function Login() {
     if (res.data.user) {
       setUser(res.data.user);
       console.log('redirect');
-      Router.push(`/user/${res.data.user._id}`);
+      Router.push(`${SERVER_URL}/user/${res.data.user._id}`);
     }
   };
   const login = async status => {
@@ -53,7 +53,7 @@ function Login() {
         const res = await axios.post(loginUrl, userData);
         setUser(res.data.user);
         console.log(res.data);
-        Router.push(`/user/${res.data.user._id}`);
+        Router.push(`${SERVER_URL}/user/${res.data.user._id}`);
       } catch (err) {
         console.log(err);
       }
@@ -63,8 +63,8 @@ function Login() {
 
       if (res.data.user) {
         setUser(res.data.user);
-        console.log('redirect');
-        Router.push(`/user/${res.data.user._id}`);
+
+        Router.push(`${SERVER_URL}/user/${res.data.user._id}`);
       }
     }
   };
