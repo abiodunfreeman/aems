@@ -120,7 +120,7 @@ export default function InstanceCard(props) {
         return option;
       }
     })[0].id;
-    setDynamicUserLink(`http://localhost:3000/user/${id}`);
+    setDynamicUserLink(`/user/${id}`);
     // console.log(id);
   };
   return (
