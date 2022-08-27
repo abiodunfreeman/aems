@@ -8,6 +8,12 @@ import { useUserContext } from '../context/user';
 export default function Home() {
   const [user, setUser] = useUserContext();
 
+  useEffect(() => {
+    if (localStorage.getItem('user')) {
+      console.log(localStorage.getItem('user'));
+      setUser(localStorage.getItem('user'));
+    }
+  }, []);
   return (
     <div>
       <Head>
