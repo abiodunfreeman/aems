@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     if (localStorage.getItem('user')) {
-      console.log(localStorage.getItem('user'));
+      console.log(...localStorage.getItem('user'));
       setUser(localStorage.getItem('user'));
     }
   }, []);
