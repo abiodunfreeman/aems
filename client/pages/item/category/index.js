@@ -30,7 +30,7 @@ export default function Home() {
     setCatJSON(res.data);
   };
   const deleteCategoryClick = async id => {
-    console.log(user.status);
+    console.log(user);
     // console.log(catJSON);
     const cat = catJSON.filter(category => category._id === id)[0];
     // console.log(cat);

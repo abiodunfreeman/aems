@@ -73,7 +73,7 @@ export default function All() {
 
     setItems(prevItems => {
       return allItems.filter(item =>
-        item.category.name.includes(e.target.value)
+        item.category.name.toLowerCase().includes(e.target.value.toLowerCase())
       );
     });
   };

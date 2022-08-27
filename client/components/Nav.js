@@ -127,7 +127,7 @@ export default function Nav() {
   };
   useEffect(() => {
     if (!user && localStorage.getItem('user')) {
-      console.log(localStorage.getItem('user'));
+      console.log(JSON.parse(localStorage.getItem('user')));
       setUser(JSON.parse(localStorage.getItem('user')));
     }
   }, []);
