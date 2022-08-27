@@ -57,6 +57,10 @@ export default function Home() {
 
   useEffect(() => {
     getAllCategories();
+    if (!user && localStorage.getItem('user')) {
+      console.log(JSON.parse(localStorage.getItem('user')));
+      setUser(JSON.parse(localStorage.getItem('user')));
+    }
   }, []);
 
   return (
