@@ -110,6 +110,7 @@ export default function Nav() {
     hamburgerIcon.classList.toggle('change');
   };
   const logout = async () => {
+    localStorage.clear();
     const res = await axios.get(`${SERVER_URL}/logout`);
     setUser(false);
     Router.push('/user/logout');
