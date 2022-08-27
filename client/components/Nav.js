@@ -204,46 +204,6 @@ export default function Nav() {
                       </MenuItem>
                     </Menu>
                   </div>
-                  {/* CATEGORIES MENU */}
-                  <div>
-                    <p
-                      id="basic-category-button"
-                      aria-controls={
-                        categoryOpen ? 'basic-category-menu' : undefined
-                      }
-                      aria-haspopup="true"
-                      aria-expanded={categoryOpen ? 'true' : undefined}
-                      onClick={handleCategoryMenuClick}
-                      onMouseEnter={handleCategoryMenuHover}
-                      className="nav-link"
-                      onMouseLeave={handleMenuMouseLeave}
-                    >
-                      CATEGORIES
-                    </p>
-                    <Menu
-                      id="basic-category-menu"
-                      anchorEl={categoryAnchorEl}
-                      open={categoryOpen}
-                      onClose={handleCategoryMenuClose}
-                      MenuListProps={{
-                        'aria-labelledby': 'basic-button',
-                      }}
-                      sx={{ marginTop: '5px' }}
-                    >
-                      <MenuItem onClick={handleCategoryMenuClose}>
-                        {' '}
-                        <Link href="/item/category">
-                          <p className="nav-link">view all</p>
-                        </Link>
-                      </MenuItem>
-                      <MenuItem onClick={handleCategoryMenuClose}>
-                        {' '}
-                        <Link href="/item/category/new">
-                          <p className="nav-link">create</p>
-                        </Link>
-                      </MenuItem>
-                    </Menu>
-                  </div>
                   {/* ITEMS MENU */}
                   <div>
                     <p
@@ -271,7 +231,7 @@ export default function Nav() {
                       <MenuItem onClick={handleItemMenuClose}>
                         {' '}
                         <Link href="/item/all">
-                          <p className="nav-link">view all</p>
+                          <p className="nav-link">view all items</p>
                         </Link>
                       </MenuItem>
                       <MenuItem onClick={handleItemMenuClose}>
@@ -283,7 +243,19 @@ export default function Nav() {
                       <MenuItem onClick={handleItemMenuClose}>
                         {' '}
                         <Link href="/item/new">
-                          <p className="nav-link">create</p>
+                          <p className="nav-link">create an item</p>
+                        </Link>
+                      </MenuItem>
+                      <MenuItem onClick={handleCategoryMenuClose}>
+                        {' '}
+                        <Link href="/item/category">
+                          <p className="nav-link">view categories</p>
+                        </Link>
+                      </MenuItem>
+                      <MenuItem onClick={handleCategoryMenuClose}>
+                        {' '}
+                        <Link href="/item/category/new">
+                          <p className="nav-link">create category</p>
                         </Link>
                       </MenuItem>
                     </Menu>
@@ -380,7 +352,7 @@ export default function Nav() {
                 </Link>
                 <Link href="/item/all">
                   <p className="nav-link " onClick={() => handleLinkClick()}>
-                    all items
+                    view all items
                   </p>
                 </Link>
 
@@ -389,26 +361,6 @@ export default function Nav() {
                     view all instances
                   </p>
                 </Link>
-              </AccordionDetails>
-            </Accordion>
-            {/* CATEGORIES */}
-            <Accordion
-              sx={{
-                backgroundColor: 'rgb(0,0,0)',
-                width: '100%',
-                borderBottom: '1px solid #6c757d',
-                borderRadius: '0',
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: '#f84018' }} />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                sx={{ color: 'white' }}
-              >
-                <span className="ml-5vw">CATEGORIES</span>
-              </AccordionSummary>
-              <AccordionDetails sx={{ color: 'white', paddingLeft: '70px;' }}>
                 <Link href="/item/category">
                   <p className="nav-link" onClick={() => handleLinkClick()}>
                     veiw all categories
