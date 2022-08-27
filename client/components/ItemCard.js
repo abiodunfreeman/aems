@@ -59,9 +59,14 @@ const ItemCard = props => {
     const formData = { category, brand, model, price, quantity };
     // console.log(formData);
     const res = await axios.put(`${SERVER_URL}/item/${item._id}`, formData);
-    props.fetchItems();
-    setMsg('item updated');
-    setErrMsg('');
+    if (res.data.success) {
+      props.fetchItems();
+      setMsg('item updated');
+      setErrMsg('');
+    } else {
+      setErrMsg('item not updated');
+      setMsg('');
+    }
   };
   const assignToUser = async id => {
     const res = await axios.put(`${SERVER_URL}/user/item/${userData}`, {
