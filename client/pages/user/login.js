@@ -64,7 +64,11 @@ function Login() {
       try {
         const res = await axios.post(loginUrl, userData);
         if (res.data && res.data.user) {
-          localStorage.setItem('user', { ...res.data.user });
+          localStorage.setItem('user', {
+            _id: res.data.user._id,
+            username: res.data.user.username,
+            status: res.data.user.status,
+          });
           setWaiting(false);
           setUser(res.data.user);
           Router.push({
