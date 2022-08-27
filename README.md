@@ -26,5 +26,5 @@ Found out about useContext out of neccesity, getting a response from the server 
 
 ## To-Do
 
-    -put create category under items
+    -msg when item is created
     -update 'dev' server to match prod
