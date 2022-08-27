@@ -125,7 +125,12 @@ export default function Nav() {
     dropDown.classList.toggle('flex');
     hamburgerIcon.classList.toggle('change');
   };
-
+  useEffect(() => {
+    if (!user && localStorage.getItem('user')) {
+      console.log(...localStorage.getItem('user'));
+      setUser(localStorage.getItem('user'));
+    }
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <div className="nav-container ">
