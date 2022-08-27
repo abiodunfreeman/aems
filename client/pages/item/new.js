@@ -25,7 +25,7 @@ const theme = createTheme({
 });
 const New = () => {
   const SERVER_URL = 'https://aems-server.herokuapp.com';
-
+  const [msg, setMsg] = useState(false);
   const [categoryData, setCategoryData] = useState([]);
 
   const [catFormData, setCatFormData] = useState('');
@@ -56,9 +56,18 @@ const New = () => {
     try {
       const res = await axios.post(`${SERVER_URL}/item/new`, formData);
       console.log(res.data);
+      setMsg(
+        <h1>
+          <span className="text-green-500 font-semibold underline">
+            {res.data.model}
+          </span>{' '}
+          created Succesfully
+        </h1>
+      );
       const form = document.querySelector('form');
       form.reset();
     } catch (err) {
+      setMsg(<h1>something went wrong, try again</h1>);
       console.log(err);
     }
   };
@@ -71,6 +80,7 @@ const New = () => {
             Create a New Item
           </h1>
           <Card className="p-4 self-center  max-w-screen-sm m-4" raised={true}>
+            {msg}
             <form onSubmit={e => handleFormSubmit(e)} className="">
               <CardContent className=" flex flex-col">
                 <FormControl fullWidth required>
