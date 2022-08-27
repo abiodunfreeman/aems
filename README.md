@@ -26,8 +26,5 @@ Found out about useContext out of neccesity, getting a response from the server 
 
 ## To-Do
 
-    -case insensitive on category search /item/all
     -put create category under items
-    -save user auth in some fashion
     -update 'dev' server to match prod
-    -on successfull item update get rid of errMsg on /item/all
