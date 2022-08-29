@@ -21,7 +21,7 @@ export default function AllUsers() {
           key={u._id}
           className="border border-black p-2 flex flex-col items-center justify-center gap-3 w-60 h-60 shadow-lg bg-darkgray text-white  rounded-lg"
         >
-          <h1 className=" text-bold text-3xl">{u.username}</h1>
+          <h1 className=" font-semibold text-3xl">{u.username}</h1>
 
           <Link href={`/user/[id]?id=${u._id}`}>
             <Button variant="contained">View Profile</Button>
