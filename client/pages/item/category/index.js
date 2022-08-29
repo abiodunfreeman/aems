@@ -15,12 +15,12 @@ export default function Home() {
     const res = await axios.get(`${SERVER_URL}/category/all`);
     const jsxData = res.data.map(x => {
       return (
-        <div key={x.name} className="border border-black p-3 flex flex-col ">
-          <Link href={`/item/category/${x.name}`}>
-            <h1 className="text-3xl text-center">{x.name}</h1>
-          </Link>
-
-          <Button variant="outlined" onClick={() => deleteCategoryClick(x._id)}>
+        <div key={x.name} className="bg-darkgray text-white p-3 flex flex-col ">
+          <h1 className="text-3xl text-center">{x.name}</h1>
+          <Button
+            variant="contained"
+            onClick={() => deleteCategoryClick(x._id)}
+          >
             Delete
           </Button>
         </div>

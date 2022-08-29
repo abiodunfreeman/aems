@@ -33,7 +33,7 @@ function Login() {
     e.preventDefault();
     setWaiting(true);
     try {
-      const username = document.getElementById('username').value;
+      const username = document.getElementById('username').value.toLowerCase();
       const password = document.getElementById('password').value;
 
       const userData = { username, password };
