@@ -149,7 +149,7 @@ const OneUser = () => {
               <Link href="/user/all">
                 <Button>All Users</Button>
               </Link>
-              {userItemsJSX && userItemsJSX > 0 && (
+              {userItemsJSX && userItemsJSX.length > 0 && (
                 <Link href="/item/all">
                   <Button>Add Items</Button>
                 </Link>
