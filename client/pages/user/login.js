@@ -27,6 +27,7 @@ function Login() {
   axios.defaults.withCredentials = true;
 
   const [user, setUser] = useUserContext();
+  const [msg, setMsg] = useState(false);
   const [waiting, setWaiting] = useState(false);
   const loginAuto = async e => {
     e.preventDefault();
@@ -52,10 +53,18 @@ function Login() {
         );
         setUser(res.data.user);
         setWaiting(false);
+        setMsg(false);
         Router.push({
           pathname: '/user/[id]',
           query: { id: res.data.user._id },
         });
+      } else if (res.data.success === false) {
+        setWaiting(false);
+        setMsg(
+          <h2 className="text-center text-red-500">
+            username/password is incorrect
+          </h2>
+        );
       } else {
         console.log(res);
       }
@@ -130,6 +139,7 @@ function Login() {
             <form className=" flex flex-col " onSubmit={e => loginAuto(e)}>
               <CardContent className=" flex flex-col">
                 <h1 className="text-center font-bold pb-1">login</h1>
+                {msg}
                 <TextField
                   type="string"
                   placeholder="enter a username"
