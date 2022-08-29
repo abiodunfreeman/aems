@@ -240,16 +240,17 @@ export default function Nav() {
                           <p className="nav-link">view instances</p>
                         </Link>
                       </MenuItem>
-                      <MenuItem onClick={handleItemMenuClose}>
-                        {' '}
-                        <Link href="/item/new">
-                          <p className="nav-link">create an item</p>
-                        </Link>
-                      </MenuItem>
+
                       <MenuItem onClick={handleCategoryMenuClose}>
                         {' '}
                         <Link href="/item/category">
                           <p className="nav-link">view categories</p>
+                        </Link>
+                      </MenuItem>
+                      <MenuItem onClick={handleItemMenuClose}>
+                        {' '}
+                        <Link href="/item/new">
+                          <p className="nav-link">create an item</p>
                         </Link>
                       </MenuItem>
                       <MenuItem onClick={handleCategoryMenuClose}>
@@ -345,11 +346,6 @@ export default function Nav() {
                 <span className="ml-5vw">ITEMS</span>
               </AccordionSummary>
               <AccordionDetails sx={{ color: 'white', paddingLeft: '70px;' }}>
-                <Link href="/item/new">
-                  <p className="nav-link " onClick={() => handleLinkClick()}>
-                    create an item
-                  </p>
-                </Link>
                 <Link href="/item/all">
                   <p className="nav-link " onClick={() => handleLinkClick()}>
                     view all items
@@ -364,6 +360,11 @@ export default function Nav() {
                 <Link href="/item/category">
                   <p className="nav-link" onClick={() => handleLinkClick()}>
                     veiw all categories
+                  </p>
+                </Link>
+                <Link href="/item/new">
+                  <p className="nav-link " onClick={() => handleLinkClick()}>
+                    create an item
                   </p>
                 </Link>
                 <Link href="/item/category/new">
