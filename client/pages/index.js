@@ -42,12 +42,10 @@ export default function Home() {
             </Link>
             <br />
             <br />
-            Users can view items, and be assigned items by admins. Admins can
-            create categories, and items which fall underneath a specfic
-            category.
-            <br /> <br /> Admins can assign users items up to the number in
-            storage, update those items if they get damaged or lost , and make
-            notes.
+            AEMS is a web application that enables users to track items across a
+            large business. Users can add new items, update them if they get
+            damaged or lost, and add detailed notes as to the current status of
+            the items.
           </p>
         </div>
       </main>
