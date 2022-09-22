@@ -3,7 +3,7 @@
 This application lets users keep track of items. Users can be assigned different items from admins. Admins can add new items, update items , and delete items as needed. Items can be viewed, sorted by categories and users.
 
 Users can have one of two statuses, 'admin' or 'default'. Admins can add new items, update items, and delete items as needed. Items can be viewed by category or all together by anyone. Admins can add notes to items, and assign instances of items to users.
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** http://aems.vercel.com
 
 ![alt tag](/aptiv.png)
 
